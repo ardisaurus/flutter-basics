@@ -1,2 +1,11 @@
-# flutter-basics
-Ardi's basic flutter examples
+# Flutter Basics Examples
+## Folder structure basic
+- lib
+  - bloc
+  - blocs
+  - components
+  - models
+  - screens
+  - service
+  - theme
+  
