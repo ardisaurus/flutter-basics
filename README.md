@@ -1,4 +1,4 @@
-# Flutter Basics Examples
+# Flutter Basic Examples
 
 ## Basic commands
 - Instal packages
