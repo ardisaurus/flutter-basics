@@ -1,6 +1,8 @@
-# router
+# Router Example
 
-A new Flutter project.
+## Ardi's Steps
+1. Define routes at main.dart
+2. Use "Navigator" from other widgets
 
 ## Getting Started
 
