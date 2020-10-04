@@ -1,6 +1,11 @@
-# provider
+# Provider
 
-A new Flutter project.
+## Ardi's Step by step
+
+1. Add provider package to dependencies
+2. Create provider class at bloc folder
+3. Add multiprovider widget at main.dart and add ChangeNotifierProvider
+4. Declare and use povider in widgets. ex : home.dart anf btn_add.dart
 
 ## Getting Started
 
