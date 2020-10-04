@@ -1,6 +1,10 @@
-# listview
+# ListView
 
-A new Flutter project.
+## Ardi's Todo List
+
+1. Create class on services
+2. Declare list of object on widget
+3. Create listview on widget's body
 
 ## Getting Started
 
