@@ -37,6 +37,28 @@ class _MyHomePageState extends State<MyHomePage> {
               padding: EdgeInsets.all(8.0),
               child: RaisedButton(
                 onPressed: () {
+                  //ARDI'S NOTE : Show a page over this page and pass arguments name
+                  Navigator.pushNamed(context, '/chat',
+                      arguments: {'name': 'Annie'});
+                },
+                child: Text('Chat with Annie'),
+              ),
+            ),
+            Padding(
+              padding: EdgeInsets.all(8.0),
+              child: RaisedButton(
+                onPressed: () {
+                  //ARDI'S NOTE : Show a page over this page and pass arguments name
+                  Navigator.pushNamed(context, '/chat',
+                      arguments: {'name': 'Hazel'});
+                },
+                child: Text('Chat with Hazel'),
+              ),
+            ),
+            Padding(
+              padding: EdgeInsets.all(8.0),
+              child: RaisedButton(
+                onPressed: () {
                   //ARDI'S NOTE : Show a page and remove this page
                   Navigator.pushReplacementNamed(context, '/login');
                 },

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:router/screens/chat.dart';
 import 'package:router/screens/editProfile.dart';
 import 'package:router/screens/home.dart';
 import 'package:router/screens/login.dart';
@@ -27,6 +28,7 @@ class MyApp extends StatelessWidget {
             ),
         '/profile': (context) => Profile(),
         '/editProfile': (context) => EditProfile(),
+        '/chat': (context) => Chat(),
         '/login': (context) => Login(),
       },
     );
