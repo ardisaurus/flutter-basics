@@ -1,8 +1,18 @@
 # Router Example
 
 ## Ardi's Steps
+
 1. Define routes at main.dart
 2. Use "Navigator" from other widgets
+
+## Route examples include
+
+1. pushNamed
+2. pushNamed with arguments
+3. popAndPushNamed
+4. pushReplacementNamed
+5. pop
+6. pop with argument
 
 ## Getting Started
 

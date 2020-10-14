@@ -4,6 +4,7 @@ import 'package:router/screens/editProfile.dart';
 import 'package:router/screens/home.dart';
 import 'package:router/screens/login.dart';
 import 'package:router/screens/profile.dart';
+import 'package:router/screens/status.dart';
 
 void main() {
   runApp(MyApp());
@@ -30,6 +31,7 @@ class MyApp extends StatelessWidget {
         '/editProfile': (context) => EditProfile(),
         '/chat': (context) => Chat(),
         '/login': (context) => Login(),
+        '/status': (context) => Status(),
       },
     );
   }

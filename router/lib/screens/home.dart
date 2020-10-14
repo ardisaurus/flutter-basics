@@ -9,6 +9,8 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
+  bool isOnline = true;
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -36,8 +38,21 @@ class _MyHomePageState extends State<MyHomePage> {
             Padding(
               padding: EdgeInsets.all(8.0),
               child: RaisedButton(
+                onPressed: () async {
+                  //ARDI'S NOTE : Show a page and remove this page
+                  dynamic x = await Navigator.pushNamed(context, '/status');
+                  setState(() {
+                    isOnline = x;
+                  });
+                },
+                child: Text(isOnline ? 'Status : Online' : 'Status : Offline'),
+              ),
+            ),
+            Padding(
+              padding: EdgeInsets.all(8.0),
+              child: RaisedButton(
                 onPressed: () {
-                  //ARDI'S NOTE : Show a page over this page and pass arguments name
+                  //ARDI'S NOTE : Show a page over this page and pass arguments
                   Navigator.pushNamed(context, '/chat',
                       arguments: {'name': 'Annie'});
                 },
@@ -48,7 +63,7 @@ class _MyHomePageState extends State<MyHomePage> {
               padding: EdgeInsets.all(8.0),
               child: RaisedButton(
                 onPressed: () {
-                  //ARDI'S NOTE : Show a page over this page and pass arguments name
+                  //ARDI'S NOTE : Show a page over this page and pass arguments
                   Navigator.pushNamed(context, '/chat',
                       arguments: {'name': 'Hazel'});
                 },
