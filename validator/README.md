@@ -1,6 +1,6 @@
 # Form Validator
 
-## what inside
+## What inside
 1. validator implementation
 2. keyboard type
 3. max input length
@@ -12,10 +12,10 @@
 2. define GlobalKey for form key
 3. insert form key to Form widget
 4. create input widgets
-  4.1. define validator prop and onsave prop
+  - define validator prop and onsave prop
 5. create submit button
-  5.1 call validate method
-  5.2 call save method
+  - call validate method
+  - call save method
 
 ## Getting Started
 
