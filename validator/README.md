@@ -1,6 +1,21 @@
-# validator
+# Form Validator
 
-A new Flutter project.
+## what inside
+1. validator implementation
+2. keyboard type
+3. max input length
+4. integer value parsing from input
+5. RegEx implementation example
+
+## Ardi's steps
+1. define state
+2. define GlobalKey for form key
+3. insert form key to Form widget
+4. create input widgets
+  4.1. define validator prop and onsave prop
+5. create submit button
+  5.1 call validate method
+  5.2 call save method
 
 ## Getting Started
 
