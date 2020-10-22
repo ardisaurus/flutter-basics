@@ -8,48 +8,156 @@ class MyCustomForm extends StatefulWidget {
   }
 }
 
-// Create a corresponding State class.
-// This class holds data related to the form.
 class MyCustomFormState extends State<MyCustomForm> {
-  // Create a global key that uniquely identifies the Form widget
-  // and allows validation of the form.
-  //
-  // Note: This is a GlobalKey<FormState>,
-  // not a GlobalKey<MyCustomFormState>.
-  final _formKey = GlobalKey<FormState>();
+  String _name;
+  String _email;
+  String _password;
+  String _url;
+  String _phoneNumber;
+  String _age;
+
+  final GlobalKey<FormState> _formKey = GlobalKey<FormState>();
+
+  Widget _buildNameField() {
+    return TextFormField(
+      decoration: InputDecoration(labelText: 'Name'),
+      maxLength: 10,
+      validator: (String value) {
+        if (value.isEmpty) {
+          return 'Name is required';
+        }
+        return null;
+      },
+      onSaved: (String value) {
+        _name = value;
+      },
+    );
+  }
+
+  Widget _buildEmailField() {
+    return TextFormField(
+      decoration: InputDecoration(labelText: 'Email'),
+      validator: (String value) {
+        if (value.isEmpty) {
+          return 'Email is required';
+        }
+        if (!RegExp(
+                r"[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?")
+            .hasMatch(value)) {
+          return 'Email is Invalid';
+        }
+        return null;
+      },
+      onSaved: (String value) {
+        _email = value;
+      },
+    );
+  }
+
+  Widget _buildPasswordField() {
+    return TextFormField(
+      decoration: InputDecoration(labelText: 'Password'),
+      keyboardType: TextInputType.visiblePassword,
+      validator: (String value) {
+        if (value.isEmpty) {
+          return 'Password is required';
+        }
+        return null;
+      },
+      onSaved: (String value) {
+        _password = value;
+      },
+    );
+  }
+
+  Widget _buildPhoneNumberField() {
+    return TextFormField(
+      decoration: InputDecoration(labelText: 'Phone Number'),
+      keyboardType: TextInputType.phone,
+      validator: (String value) {
+        if (value.isEmpty) {
+          return 'Phone Number is required';
+        }
+        return null;
+      },
+      onSaved: (String value) {
+        _phoneNumber = value;
+      },
+    );
+  }
+
+  Widget _buildUrlField() {
+    return TextFormField(
+      decoration: InputDecoration(labelText: 'Url'),
+      keyboardType: TextInputType.url,
+      validator: (String value) {
+        if (value.isEmpty) {
+          return 'Url is required';
+        }
+        return null;
+      },
+      onSaved: (String value) {
+        _url = value;
+      },
+    );
+  }
+
+  Widget _buildAgeField() {
+    return TextFormField(
+      decoration: InputDecoration(labelText: 'Age'),
+      keyboardType: TextInputType.number,
+      validator: (String value) {
+        int age = int.tryParse(value);
+        if (age == null || age <= 0) {
+          return 'Age must be greter than 0';
+        }
+        return null;
+      },
+      onSaved: (String value) {
+        _age = value;
+      },
+    );
+  }
 
   @override
   Widget build(BuildContext context) {
-    // Build a Form widget using the _formKey created above.
-    return Form(
-      key: _formKey,
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: <Widget>[
-          TextFormField(
-            validator: (value) {
-              if (value.isEmpty) {
-                return 'Please enter some text';
-              }
-              return null;
-            },
-          ),
-          Padding(
-            padding: const EdgeInsets.symmetric(vertical: 16.0),
-            child: ElevatedButton(
-              onPressed: () {
-                // Validate returns true if the form is valid, or false
-                // otherwise.
-                if (_formKey.currentState.validate()) {
-                  // If the form is valid, display a Snackbar.
-                  Scaffold.of(context)
-                      .showSnackBar(SnackBar(content: Text('Input is valid')));
-                }
-              },
-              child: Text('Submit'),
-            ),
-          ),
-        ],
+    return Scaffold(
+      appBar: AppBar(
+        title: Text("Form Demo"),
+      ),
+      body: Container(
+        margin: EdgeInsets.all(24),
+        child: Form(
+            key: _formKey,
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                _buildNameField(),
+                _buildEmailField(),
+                _buildPasswordField(),
+                _buildPhoneNumberField(),
+                _buildUrlField(),
+                _buildAgeField(),
+                SizedBox(
+                  height: 10,
+                ),
+                RaisedButton(
+                  onPressed: () {
+                    if (!_formKey.currentState.validate()) {
+                      return;
+                    }
+                    _formKey.currentState.save();
+                    print(_name);
+                    print(_email);
+                    print(_password);
+                    print(_phoneNumber);
+                    print(_url);
+                    print(_age);
+                  },
+                  child: Text('Submit'),
+                )
+              ],
+            )),
       ),
     );
   }

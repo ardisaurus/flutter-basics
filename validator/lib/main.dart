@@ -10,12 +10,7 @@ class MyApp extends StatelessWidget {
 
     return MaterialApp(
       title: appTitle,
-      home: Scaffold(
-        appBar: AppBar(
-          title: Text(appTitle),
-        ),
-        body: MyCustomForm(),
-      ),
+      home: MyCustomForm(),
     );
   }
 }
